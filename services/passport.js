@@ -10,9 +10,9 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-    User.findById(id).then(user => {
-            done(null, user);    
-        });
+    User.findById(id).then((user) => {
+        done(null, user);    
+    });
 });
 
 passport.use(
@@ -32,7 +32,7 @@ passport.use(
 
                         new User({ googleId: profile.id })
                         .save()
-                        .then(user => done(null, user));
+                        .then((user) => done(null, user));
                     }
                 });
         }
