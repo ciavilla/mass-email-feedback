@@ -32,9 +32,11 @@ passport.use(
 
                         new User({ googleId: profile.id })
                         .save()
-                        .then((user) => done(null, user));
+                        .then((user) => done(null, user))
+                        .catch((err) => done(err, null));
                     }
-                });
+                })
+                .catch((err) => done(err, null));
         }
     )
 );
