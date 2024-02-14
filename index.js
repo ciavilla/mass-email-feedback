@@ -9,6 +9,7 @@ const keys = require('./config/keys');
 const cors = require('cors');
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -37,6 +38,9 @@ authRoutes(app);
 
 const billingRoutes = require('./routes/billingRoutes');
 billingRoutes(app);
+
+const surveyRoutes = require('./routes/surveyRoutes');
+surveyRoutes(app);
 
 // health endpoint
 app.use('/', (req, res) => {
